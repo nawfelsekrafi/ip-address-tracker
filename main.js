@@ -6,6 +6,7 @@ var timezone = document.getElementById("timezone");
 var ispValue = document.getElementById("ispValue");
 window.addEventListener('load', function() {
     setUpMap();
+    getData();
 })
 
 var lat = 34.04915;
@@ -34,20 +35,36 @@ searchInputValue.addEventListener('keyup', function(e){
 
 //get geo location data from a server with fetch api & iPify api
 function getData(ipAddress){
-    fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_cCCuZdOXAdbARKxrnxKMA5CiesbsB&ipAddress=' + ipAddress)
-    .then(res => res.json())
-    .then(data =>{
-        ipAddressDiv.innerHTML = data.ip;
-        ispValue.innerHTML = data.isp;
-        locationDiv.innerHTML = data.location.city + ", "+ data.location.region + " " + data.location.postalCode; 
-        timezone.innerHTML = "UTC "+data.location.timezone;
-         lat = data.location.lat;
-         lng = data.location.lng;
-         map.panTo(new L.LatLng(lat, lng));
-         marker = L.marker([lat, lng]).addTo(map);
-        });
+    var Apilink = "https://geo.ipify.org/api/v2/country,city?apiKey=at_YpbtjU2JPJmlduQFc5y5yV3xJeu3Z";
+    if (ipAddress === undefined){
+        fetch(Apilink)
+        .then(res => res.json())
+        .then(data =>{
+            ipAddressDiv.innerHTML = data.ip;
+            ispValue.innerHTML = data.isp;
+            locationDiv.innerHTML = data.location.city + ", "+ data.location.region + " " + data.location.postalCode; 
+            timezone.innerHTML = "UTC "+data.location.timezone;
+             lat = data.location.lat;
+             lng = data.location.lng;
+             map.panTo(new L.LatLng(lat, lng));
+             marker = L.marker([lat, lng]).addTo(map);
+            });
+       
+    }else {
+        Apilink += "&ipAddress="+ ipAddress;
+        fetch(Apilink)
+        .then(res => res.json())
+        .then(data =>{
+            ipAddressDiv.innerHTML = data.ip;
+            ispValue.innerHTML = data.isp;
+            locationDiv.innerHTML = data.location.city + ", "+ data.location.region + " " + data.location.postalCode; 
+            timezone.innerHTML = "UTC "+data.location.timezone;
+             lat = data.location.lat;
+             lng = data.location.lng;
+             map.panTo(new L.LatLng(lat, lng));
+             marker = L.marker([lat, lng]).addTo(map);
+            });
+    }
+        
 }
 
-
-// mobile view
-// input checking
