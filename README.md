@@ -40,3 +40,4 @@ Users should be able to:
 - Vanilla javaScript 🔥
 - leafletJs
 - IP Geolocation API by IPify
+- Fetch Api
