@@ -85,7 +85,7 @@ main {
     text-transform: uppercase;
     margin-bottom: 9px;
 }
-}
+
 #ip-output-info > div > p {
     font-weight: 500;
     font-size: 23px;
@@ -113,6 +113,8 @@ main {
 }
 
 .attribution {
+    position: absolute;
+    bottom:-200px;
     font-size: 11px;
     text-align: center;
   }
