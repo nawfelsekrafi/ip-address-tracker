@@ -38,3 +38,5 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS Flexbox
 - Vanilla javaScript 🔥
+- leafletJs
+- IP Geolocation API by IPify
