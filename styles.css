@@ -60,6 +60,9 @@ input:focus{
     outline: none !important;
 }
 
+main {
+    position: relative;
+}
 #ip-output-info {
     display: flex;
     margin: -64px 13% 0px 13%;
@@ -68,17 +71,20 @@ input:focus{
     border-radius: 14px;
 }
 #ip-output-info > div{
-    border-right: 1px solid var(--dark-gray);
+    border-right: 1px solid hsl(0deg 0% 59% / 57%);
     margin: 17px 0px;
     width: 22%;
 }
 
 #ip-output-info > div > h2 {
     color: var(--dark-gray);
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 1px;
     margin: 0;
     text-transform: uppercase;
+    margin-bottom: 9px;
+}
 }
 #ip-output-info > div > p {
     font-weight: 500;
@@ -91,8 +97,7 @@ input:focus{
 }
 
 #map-section{
-    margin-top: -100px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .leaflet-control-container {
@@ -100,13 +105,51 @@ input:focus{
 }
 
 #map {
+    position: absolute;
+    top: 0;
+    width: 100%;
     height: calc(100vh);
     z-index: -1;
 }
+
 .attribution {
-  font-size: 11px;
-  text-align: center;
+    font-size: 11px;
+    text-align: center;
+  }
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+@media screen and (max-width: 1042px){
+    #ip-output-info {
+        flex-direction: column;
+        padding: 20px 0px 0px 0px;
+        width: 80%;
+        margin: -124px auto;
+        justify-content: center;
+    }
+    #ip-output-info > div {
+        border: none !important;
+        margin: 0;
+        text-align: center;
+        width:100%;
+    }
+    #ip-output-info > div > h2{
+        font-weight: 500;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    header > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: initial 5% 0 5% initial;
+    }
 }
-.attribution a {
-  color: hsl(228, 45%, 44%);
+@media screen and (max-width: 885px){
+   header > div {
+    width: 80%;
+    margin: 0 auto;
+   }
 }
+

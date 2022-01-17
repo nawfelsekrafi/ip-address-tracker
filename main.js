@@ -23,7 +23,6 @@ function setUpMap(){
     }).addTo(map);
 }
 
-
 searchBtn.addEventListener('click', function(){
  getData(searchInputValue.value);
 });
@@ -42,15 +41,13 @@ function getData(ipAddress){
         ispValue.innerHTML = data.isp;
         locationDiv.innerHTML = data.location.city + ", "+ data.location.region + " " + data.location.postalCode; 
         timezone.innerHTML = "UTC "+data.location.timezone;
-        lat = data.location.lat;
-        lng = data.location.lng;
-        var marker = L.marker([lat, lng]).addTo(map);
-        setUpMap()
-         console.log(data)
+         lat = data.location.lat;
+         lng = data.location.lng;
+         map.panTo(new L.LatLng(lat, lng));
+         marker = L.marker([lat, lng]).addTo(map);
         });
 }
 
 
-// set map to calback
 // mobile view
 // input checking
